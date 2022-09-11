@@ -1,0 +1,229 @@
+
+
+<!-- DO THIS BUT WITH NAV NO FORGETS ==================================================================-->
+<div class="main-bar">
+    <a class="main-bar-brand">Formula1 Tracker</a>
+    <h3 class="add-driver" (click)="onOpenModal(null!, 'add')" >Add Driver</h3>
+</div>
+
+<div class="box-container">
+  <div class="box">
+    <form name="search">
+        <input type="search" (ngModelChange)="searchDrivers(key.value)" #key="ngModel" ngModel
+        class="input" id="searchDriver" name="search" onmouseout="this.value = ''; this.blur();">
+      </form>
+    <!-- <i class="fas fa-search"></i> -->
+  </div>
+</div>
+
+<!-- flip-card-container -->
+<div class="container" id="main-container">
+  <div class="cards">
+    <div *ngFor="let driver of drivers | sortByPoints" class="flip-card-container" style="--hue: 220">
+        <div class="flip-card">
+      
+          <div class="card-front">
+            <figure>
+              <div class="img-bg"></div>
+              <img src="{{driver?.driverPhoto}}" alt="Driver Team Photo">
+              <figcaption>{{driver?.fullName}}</figcaption>
+            </figure>
+          </div>
+      
+          <div class="card-back">
+            <figure>
+              <div class="img-bg"></div>
+              <img class="f1-backcard-img" src="{{driver?.teamPhoto}}" alt="Team Photo">
+            </figure>
+
+            <ul class="driver-stats">
+              <li>Points this season: {{driver?.points}}</li>
+              <li>Grand Prix entered: {{driver?.gpEntered}}</li>
+              <li>Podiums: {{driver?.podiums}}</li>
+              <li>Wins: {{driver?.numberOfWins}}</li>
+              <li>Age: {{driver?.age}}</li>
+              <li>Poles: {{driver?.poles}}</li>
+              <li>Team: {{driver?.team}}</li>
+            </ul>
+      
+            <!-- BUTTON AND DESIGN HERE  ========================================================== -->
+            <div class="driver-buttons">
+                <div class="driver-btn edit-driver-button">
+                  <a (click)="onOpenModal(driver, 'edit')">Edit</a>
+                </div>
+                <div class="tmp-div"></div>
+                <div class="driver-btn delete-driver-button">
+                  <a (click)="onOpenModal(driver, 'delete')">Delete</a>
+                </div>
+            </div>
+            <!-- Animation on 'More' button -->
+            <!-- <div class="design-container">
+              <span class="design design--1"></span>
+              <span class="design design--2"></span>
+              <span class="design design--3"></span>
+              <span class="design design--4"></span>
+              <span class="design design--5"></span>
+              <span class="design design--6"></span>
+              <span class="design design--7"></span>
+              <span class="design design--8"></span>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- Add Driver Modal -->
+<div class="modal fade" id="addDriverModal" tabindex="-1" role="dialog" aria-labelledby="addDriverModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+       <div class="modal-header">
+          <h5 class="modal-title" id="addDriverModalLabel">Add Driver</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+       </div>
+       <div class="modal-body">
+          <form #addForm="ngForm" (ngSubmit)="onAddDriver(addForm)">
+            <div class="form-group">
+              <label for="fullName">Name</label>
+              <input type="text" ngModel name="fullName" class="form-control" id="fullName" placeholder="Name" required>
+            </div>
+            <div class="form-group">
+              <label for="points">Points this season</label>
+              <input type="text" ngModel name="points" class="form-control" id="points" placeholder="Points this season" required>
+            </div>
+            <div class="form-group">
+              <label for="gpEntered">Grand Prix Entered</label>
+              <input type="email" ngModel name="gpEntered" class="form-control" id="gpEntered" placeholder="Grand prix entered" required>
+            </div>
+            <div class="form-group">
+              <label for="podiums">Podiums</label>
+              <input type="text" ngModel name="podiums" class="form-control" id="podiums" placeholder="Podiums" required>
+            </div>
+            <div class="form-group">
+              <label for="numberOfWins">Wins</label>
+              <input type="text" ngModel name="numberOfWins" class="form-control" id="numberOfWins" placeholder="Wins" required>
+            </div>
+            <div class="form-group">
+              <label for="age">Age</label>
+              <input type="text" ngModel name="age" class="form-control" id="age" placeholder="Age" required>
+            </div>
+            <div class="form-group">
+              <label for="poles">Poles</label>
+              <input type="text" ngModel name="poles" class="form-control" id="poles" placeholder="Poles" required>
+          </div>
+          <div class="form-group">
+            <label for="team">Team</label>
+            <input type="text" ngModel name="team" class="form-control" id="team" placeholder="Team" required>
+          </div>
+          <div class="form-group">
+            <label for="driverPhoto">Driver Photo</label>
+            <input type="text" ngModel name="driverPhoto" class="form-control" id="driverPhoto" placeholder="Driver photo" required>
+          </div>
+          <div class="form-group">
+            <label for="teamPhoto">Team Photo</label>
+            <input type="text" ngModel name="teamPhoto" class="form-control" id="teamPhoto" placeholder="Team photo" required>
+          </div>
+            <div class="modal-footer">
+              <button type="button" id="add-driver-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+          </form>
+       </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Modal -->
+<div class="modal fade" id="updateDriverModal" tabindex="-1" role="dialog" aria-labelledby="editDriverModalLabel" aria-hidden="true"> 
+  <div class="modal-dialog" role="document">
+     <div class="modal-content">
+        <div class="modal-header">
+           <h5 class="modal-title" id="updateDriverModalLabel">Edit Driver {{editDriver?.fullName}}</h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+           </button>
+        </div>
+        <div class="modal-body">
+           <form #editForm="ngForm">
+            <input type="hidden" ngModel="{{editDriver?.id}}" name="id" class="form-control" id="id" placeholder="id">
+              <div class="form-group">
+                 <label for="name">Name</label>
+                 <input type="text" ngModel="{{editDriver?.fullName}}" name="fullName" class="form-control" id="fullName" aria-describedby="emailHelp" placeholder="Name">
+              </div>
+              <div class="form-group">
+                <label for="points">Points this season</label>
+                <input type="text" ngModel="{{editDriver?.points}}" name="points" class="form-control" id="points" placeholder="Points this season">
+             </div>
+             <div class="form-group">
+              <label for="gpEntered">Grang Prix Entered</label>
+              <input type="text" ngModel="{{editDriver?.gpEntered}}" name="gpEntered" class="form-control" id="gpEntered" placeholder="Grand prix entered">
+            </div>
+              <div class="form-group">
+                 <label for="email">Podiums</label>
+                 <input type="email" ngModel="{{editDriver?.podiums}}" name="podiums" class="form-control" id="podiums" placeholder="Podiums">
+              </div>
+              <div class="form-group">
+                 <label for="numberOfWins">Wins</label>
+                 <input type="text" ngModel="{{editDriver?.numberOfWins}}" name="numberOfWins" class="form-control" id="numberOfWins" placeholder="Job title">
+              </div>
+              <div class="form-group">
+                 <label for="age">Age</label>
+                 <input type="text" ngModel="{{editDriver?.age}}" name="age" class="form-control" id="age" name="age" placeholder="Age">
+              </div>
+              <div class="form-group">
+                 <label for="poles">Poles</label>
+                 <input type="text" ngModel="{{editDriver?.poles}}" name="poles" class="form-control" id="poles" placeholder="Poles">
+              </div>
+              <div class="form-group">
+                <label for="team">Team</label>
+                <input type="text" ngModel="{{editDriver?.team}}" name="team" class="form-control" id="team" placeholder="Team">
+              </div>
+              <div class="form-group">
+              <label for="driverPhoto">Driver Photo</label>
+              <input type="text" ngModel="{{editDriver?.driverPhoto}}" name="driverPhoto" class="form-control" id="driverPhoto" placeholder="Image URL">
+              </div>
+              <div class="form-group">
+                <label for="teamPhoto">Team Photo</label>
+                <input type="text" ngModel="{{editDriver?.teamPhoto}}" name="teamPhoto" class="form-control" id="teamPhoto" placeholder="Image URL">
+              </div>
+              <div class="modal-footer">
+                 <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                 <button (click)="onUpdateDriver(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
+              </div>
+           </form>
+        </div>
+     </div>
+  </div>
+</div>
+
+
+<!-- Delete Modal -->
+<div class="modal fade" id="deleteDriverModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+     <div class="modal-content">
+        <div class="modal-header">
+           <h5 class="modal-title" id="deleteModelLabel">Delete Driver</h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+           </button>
+        </div>
+        <div class="modal-body">
+           <p>Are you sure you want to delete driver "{{deleteDriver?.fullName}}"?</p>
+           <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+              <button (click)="onDeleteDriver(deleteDriver!.id)" class="btn btn-danger" data-dismiss="modal">Yes</button>
+           </div>
+        </div>
+     </div>
+  </div>
+</div>
+
+<!-- Notification for no drivers -->
+<div *ngIf="drivers?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
+  <div class="alert alert-info" role="alert">
+    <h4 class="alert-heading">NO DRIVERS!</h4>
+    <p>No drivers were found.</p>
+  </div>
+</div>
