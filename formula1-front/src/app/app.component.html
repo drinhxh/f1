@@ -1,6 +1,5 @@
 
 
-<!-- DO THIS BUT WITH NAV NO FORGETS ==================================================================-->
 <div class="main-bar">
     <a class="main-bar-brand">Formula1 Tracker</a>
     <h3 class="add-driver" (click)="onOpenModal(null!, 'add')" >Add Driver</h3>
@@ -12,7 +11,6 @@
         <input type="search" (ngModelChange)="searchDrivers(key.value)" #key="ngModel" ngModel
         class="input" id="searchDriver" name="search" onmouseout="this.value = ''; this.blur();">
       </form>
-    <!-- <i class="fas fa-search"></i> -->
   </div>
 </div>
 
@@ -46,7 +44,6 @@
               <li>Team: {{driver?.team}}</li>
             </ul>
       
-            <!-- BUTTON AND DESIGN HERE  ========================================================== -->
             <div class="driver-buttons">
                 <div class="driver-btn edit-driver-button">
                   <a (click)="onOpenModal(driver, 'edit')">Edit</a>
@@ -56,17 +53,6 @@
                   <a (click)="onOpenModal(driver, 'delete')">Delete</a>
                 </div>
             </div>
-            <!-- Animation on 'More' button -->
-            <!-- <div class="design-container">
-              <span class="design design--1"></span>
-              <span class="design design--2"></span>
-              <span class="design design--3"></span>
-              <span class="design design--4"></span>
-              <span class="design design--5"></span>
-              <span class="design design--6"></span>
-              <span class="design design--7"></span>
-              <span class="design design--8"></span>
-            </div> -->
           </div>
         </div>
       </div>
