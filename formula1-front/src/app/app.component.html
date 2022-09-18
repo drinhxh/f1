@@ -17,9 +17,10 @@
 
 
 <!-- ============================================================================ -->
+<!-- HARD CODED CARDS FOR SHOW -->
 <div class="static-cards-for-show">
   
-
+  <!-- DRIN (Erste Digital intern) Hoxha -->
   <div class="container" id="main-container">
     <div class="cards">
       <div class="flip-card-container" style="--hue: 220">
@@ -39,14 +40,14 @@
                 <img class="f1-backcard-img" src="https://assets.kununu.com/media/prod/profiles/logos/f0275f00-f65e-4cf5-9e0d-13a097210d04_1_62b9bfda658fb.gif" alt="Team Photo">
               </figure>
 
-              <ul class="driver-stats">
+              <ul class="driver-stats" id="static-cards">
+                <li>Team: Erste Digital</li>
                 <li>Points this season: 390</li>
                 <li>Grand Prix entered: 87</li>
                 <li>Podiums: 42</li>
                 <li>Wins: 32</li>
                 <li>Age: 23</li>
                 <li>Poles: 18</li>
-                <li>Team: Erste Digital</li>
               </ul>
         
               <!-- <div class="driver-buttons">
@@ -85,14 +86,14 @@
                 <img class="f1-backcard-img" src="https://www.wallpaperuse.com/wallp/63-638425_m.png" alt="Team Photo">
               </figure>
 
-              <ul class="driver-stats">
+              <ul class="driver-stats" id="static-cards">
+                <li>Team: Red Bull</li>
                 <li>Points this season: 336</li>
                 <li>Grand Prix entered: 150</li>
                 <li>Podiums: 38</li>
                 <li>Wins: 15</li>
                 <li>Age: 25</li>
                 <li>Poles: 17</li>
-                <li>Team: Red Bull</li>
               </ul>
         
               <!-- <div class="driver-buttons">
@@ -130,14 +131,14 @@
                 <img class="f1-backcard-img" src="https://i.pinimg.com/originals/72/0c/a6/720ca6b4a7882cbd0a482fb8aae983ff.jpg" alt="Team Photo">
               </figure>
 
-              <ul class="driver-stats">
+              <ul class="driver-stats" id="static-cards">
+                <li>Team: Ferrari</li>
                 <li>Points this season: 220</li>
                 <li>Grand Prix entered: 132</li>
                 <li>Podiums: 23</li>
                 <li>Wins: 11</li>
                 <li>Age: 24</li>
                 <li>Poles: 20</li>
-                <li>Team: Ferrari</li>
               </ul>
         
               <!-- <div class="driver-buttons">
@@ -181,13 +182,13 @@
             </figure>
 
             <ul class="driver-stats">
+              <li>Team: {{driver?.team}}</li>
               <li>Points this season: {{driver?.points}}</li>
               <li>Grand Prix entered: {{driver?.gpEntered}}</li>
               <li>Podiums: {{driver?.podiums}}</li>
               <li>Wins: {{driver?.numberOfWins}}</li>
               <li>Age: {{driver?.age}}</li>
               <li>Poles: {{driver?.poles}}</li>
-              <li>Team: {{driver?.team}}</li>
             </ul>
       
             <div class="driver-buttons">
