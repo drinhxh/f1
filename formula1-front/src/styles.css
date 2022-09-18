@@ -63,6 +63,12 @@ body {
   font-family: "Lato", "Segoe Ui", -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+.static-cards-for-show {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .container {
   display: contents;
   flex-wrap: wrap;
