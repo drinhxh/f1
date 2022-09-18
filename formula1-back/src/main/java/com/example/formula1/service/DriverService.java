@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -19,9 +20,10 @@ public class DriverService {
     this.driverRepository = driverRepository;
   }
 
-  public Driver addDriver(Driver driver) {
-    return driverRepository.save(driver);
-  }
+
+    public Driver addDriver(Driver driver) {
+      return driverRepository.save(driver);
+    }
 
   public List<Driver> findALlDrivers() {
     return driverRepository.findAll();

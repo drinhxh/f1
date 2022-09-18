@@ -11,6 +11,7 @@ public class Driver implements Serializable {
   @Column(nullable = false, updatable = false)
   private Long id;
   private String fullName;
+
   private String team;
   private Integer gpEntered;
   private Integer numberOfWins;

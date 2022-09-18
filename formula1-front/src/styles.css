@@ -58,15 +58,7 @@
 
 /* body */
 body {
-  min-height: 50vh;
-  /* padding: 0; */
-
-  /* display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center; */
-
-  
+  min-height: 50vh;  
   background: #19161c;
   font-family: "Lato", "Segoe Ui", -apple-system, BlinkMacSystemFont, sans-serif;
 }
@@ -189,7 +181,7 @@ figcaption {
 
 /* .img-bg */
 .img-bg {
-  background: hsla(var(--hue), 25%, 10%, .5);
+  background: hsla(var(--hue), 25%, 10%, .5);                   
 }
 
 .card-front .img-bg {
