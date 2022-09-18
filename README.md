@@ -1,7 +1,7 @@
 # F1 Tracker
 
 ### A simple CRUD project using Java/Spring Boot, and Angular on the front-end 
-##### First three cards are hard coded, thus the options for 'Edit' or 'Delete' are not available.
+##### First four cards are hard coded, thus the options for 'Edit' or 'Delete' are not available.
 ##### After adding a new driver, they function perfectly.
 
 
