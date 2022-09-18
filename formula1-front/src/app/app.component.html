@@ -88,10 +88,10 @@
 
               <ul class="driver-stats" id="static-cards">
                 <li>Team: Red Bull</li>
-                <li>Points this season: 336</li>
-                <li>Grand Prix entered: 150</li>
+                <li>Points this season: 335</li>
+                <li>Grand Prix entered: 157</li>
                 <li>Podiums: 38</li>
-                <li>Wins: 15</li>
+                <li>Wins: 31</li>
                 <li>Age: 25</li>
                 <li>Poles: 17</li>
               </ul>
@@ -109,7 +109,6 @@
           </div>
         </div>
       </div>
-  </div>
 
   <!-- CHARLES LECLERC -->
   <div class="container" id="main-container">
@@ -133,12 +132,12 @@
 
               <ul class="driver-stats" id="static-cards">
                 <li>Team: Ferrari</li>
-                <li>Points this season: 220</li>
-                <li>Grand Prix entered: 132</li>
-                <li>Podiums: 23</li>
-                <li>Wins: 11</li>
+                <li>Points this season: 219</li>
+                <li>Grand Prix entered: 97</li>
+                <li>Podiums: 20</li>
+                <li>Wins: 5</li>
                 <li>Age: 24</li>
-                <li>Poles: 20</li>
+                <li>Poles: 17</li>
               </ul>
         
               <!-- <div class="driver-buttons">
@@ -155,6 +154,51 @@
         </div>
       </div>
   </div>
+
+  <!-- LEWIS HAMITLON -->
+  <div class="container" id="main-container">
+    <div class="cards">
+      <div class="flip-card-container" style="--hue: 220">
+          <div class="flip-card">
+        
+            <div class="card-front">
+              <figure>
+                <div class="img-bg"></div>
+                <img src="https://www.formula1.com/content/fom-website/en/drivers/lewis-hamilton/_jcr_content/image.img.1920.medium.jpg/1647334259839.jpg" alt="Driver Team Photo">
+                <figcaption>Lewis Hamilton</figcaption>
+              </figure>
+            </div>
+        
+            <div class="card-back">
+              <figure>
+                <div class="img-bg"></div>
+                <img class="f1-backcard-img" src="https://w0.peakpx.com/wallpaper/952/703/HD-wallpaper-amg-petronas-f1-formula-1-formule-1-mercedes.jpg" alt="Team Photo">
+              </figure>
+
+              <ul class="driver-stats" id="static-cards">
+                <li>Team: Mercedes</li>
+                <li>Points this season: 168</li>
+                <li>Grand Prix entered: 304</li>
+                <li>Podiums: 188</li>
+                <li>Wins: 103</li>
+                <li>Age: 37</li>
+                <li>Poles: 103</li>
+              </ul>
+        
+              <!-- <div class="driver-buttons">
+                  <div class="driver-btn edit-driver-button">
+                    <a (click)="onOpenModal(driver, 'edit')">Edit</a>
+                  </div>
+                  <div class="tmp-div"></div>
+                  <div class="driver-btn delete-driver-button">
+                    <a (click)="onOpenModal(driver, 'delete')">Delete</a>
+                  </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
 </div>
 
 
@@ -235,7 +279,7 @@
               <input type="text" ngModel name="podiums" class="form-control" id="podiums" placeholder="Podiums" required>
             </div>
             <div class="form-group">
-              <label for="numberOfWins">Wins</label>
+              <label for="numberOfWins">Race Wins</label>
               <input type="text" ngModel name="numberOfWins" class="form-control" id="numberOfWins" placeholder="Wins" required>
             </div>
             <div class="form-group">
